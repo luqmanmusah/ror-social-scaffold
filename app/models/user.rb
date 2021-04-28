@@ -13,8 +13,17 @@ class User < ApplicationRecord
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    friends_array + inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
-    friends_array.compact
+    friends_i_sent_invitation = Friendship.where(user_id: id, confirmed: true).pluck(:friend_id)
+    friends_i_got_invitation = Friendship.where(friend_id: id, confirmed: true).pluck(:user_id)
+    ids = friends_i_sent_invitation + friends_i_got_invitation
+    User.where(id: ids)
+  end
+
+  def friend_with?(user)
+    Friendship.confirmed_record?(id, user.id)
+  end
+
+  def send_invitation(user)
+    friendships.create(friend_id: user.id)
   end
 end
