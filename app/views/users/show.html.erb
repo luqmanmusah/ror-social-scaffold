@@ -3,30 +3,7 @@
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>
+<%= render "add_friend" %>
     </ul>
-  <ol>
-  <% @user.friends.each do |friend| %>
-      <% if @user == current_user %>
-<li>
- <%= friend.name %>
-        <%= button_to "Unfriend",
-                      friendships_destroy_path(friendship_id: Friendship.find_friendship(@user.id, friend.id)), class: "btn btn-secondary" %>
-      <% end %>
-    </li>
-  <% end %>
-</ol>
-<h3> These people wants to be friend with <strong> <%= @user.name %> </strong> </h3>
-<ol>
-  <% @user.inverse_friendships.each do |friendship| %>
- <li>
-      <%= User.find(friendship.user_id).name %><br>
-      <%= button_to "Accept",
-                    friendships_update_path(friendship_id: friendship.id), class: "btn btn-secondary", onclick: "disable" %>
-      <%= button_to "Reject",
-                    friendships_destroy_path(friendship_id: friendship.id) %>
-    </li>
-</ol>
- <% end %>
 
-</section>
 
