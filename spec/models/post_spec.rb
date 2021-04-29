@@ -6,8 +6,14 @@ RSpec.describe Post, type: :model do
     it 'should return post id' do
       expect(post.id).to eq(1)
     end
+    it 'should not return post id' do
+      expect(post.id).not_to eq(2)
+    end
     it 'should return content' do
       expect(post.content).to eq('any_form_of_content')
+    end
+    it 'should not return content' do
+      expect(post.content).not_to eq('a_different_content')
     end
   end
 
