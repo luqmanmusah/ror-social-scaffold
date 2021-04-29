@@ -10,17 +10,17 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      redirect_to posts_path, notice: 'Post was successfully created.'
+      redirect_to posts_path, notice: "Post was successfully created."
     else
       timeline_posts
-      render :index, alert: 'Post was not created.'
+      render :index, alert: "Post was not created."
     end
   end
 
   private
 
   def timeline_posts
-    @timeline_posts ||= Post.all.ordered_by_most_recent.includes(:user)
+    @timeline_posts ||= Post.where(user: current_user.friends + [current_user.id]).ordered_by_most_recent.includes(:user)
   end
 
   def post_params
