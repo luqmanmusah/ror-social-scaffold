@@ -6,14 +6,26 @@ RSpec.describe User, type: :model do
     it 'should return user name' do
       expect(user.name).to eq('luq')
     end
+    it 'should not return user name' do
+      expect(user.name).not_to eq('musah')
+    end
     it 'should return user email' do
       expect(user.email).to eq('luq@gmail.com')
+    end
+    it 'should not return user email' do
+      expect(user.email).not_to eq('musah@gmail.com')
     end
     it 'should return user id' do
       expect(user.id).to eq(1)
     end
+    it 'should not return user id' do
+      expect(user.id).not_to eq(2)
+    end
     it 'should create new user' do
       expect(user.password).to eq('123456')
+    end
+    it 'should not create new user' do
+      expect(user.password).not_to eq('654321')
     end
   end
 
