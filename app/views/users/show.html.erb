@@ -6,8 +6,6 @@
     </ul>
   <ol>
   <% @user.friends.each do |friend| %>
-    
-     
       <% if @user == current_user %>
 <li>
  <%= friend.name %>
@@ -17,22 +15,18 @@
     </li>
   <% end %>
 </ol>
-
 <h3> These people wants to be friend with <strong> <%= @user.name %> </strong> </h3>
-
 <ol>
   <% @user.inverse_friendships.each do |friendship| %>
-   
-<% if @user == current_user %>
  <li>
       <%= User.find(friendship.user_id).name %><br>
       <%= button_to "Accept",
-                    friendships_update_path(friendship_id: friendship.id), class: "btn btn-secondary" %>
+                    friendships_update_path(friendship_id: friendship.id), class: "btn btn-secondary", onclick: "disable" %>
       <%= button_to "Reject",
                     friendships_destroy_path(friendship_id: friendship.id) %>
     </li>
- <% end %>
-  <% end %>
 </ol>
+ <% end %>
+
 </section>
 

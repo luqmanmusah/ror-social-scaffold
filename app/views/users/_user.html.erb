@@ -2,15 +2,11 @@
   Name: <%= user.name %>
   <span class="profile-link">
     <%= link_to "See Profile", user_path(user), class: "profile-link" %>
-  </span>
-</li>
- <% @users.each do |user| %>
-<% unless Friendship.reacted?(current_user.id, user.id) %> 
-<%= user.name %> <br> 
-<% end %>
- <% if signed_in? && !Friendship.reacted?(current_user.id, user.id) && current_user != user %>
+<% if signed_in? && !Friendship.reacted?(current_user.id, user.id) && current_user != user %>
        
   <%= button_to "Add Friend",
                 friendships_create_path(ids: { id1: current_user.id, id2: user.id }) %>
 <% end %>
-<% end %>
+
+  </span>
+</li>

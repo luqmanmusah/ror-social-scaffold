@@ -17,7 +17,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-
   describe 'ActiveRecord associations' do
     it 'has many posts' do
       expect { should has_many(posts) }
