@@ -4,15 +4,15 @@
     <ul class="posts">
       <%= render @posts %>
     </ul>
-  </article>
-</section>
-<ol>
+  <ol>
   <% @user.friends.each do |friend| %>
-    <li>
-      <%= friend.name %>
+    
+     
       <% if @user == current_user %>
-        <%= link_to "Unfriend",
-                    friendships_destroy_path(friendship_id: Friendship.find_friendship(@user.id, friend.id)) %>
+<li>
+ <%= friend.name %>
+        <%= button_to "Unfriend",
+                      friendships_destroy_path(friendship_id: Friendship.find_friendship(@user.id, friend.id)), class: "btn btn-secondary" %>
       <% end %>
     </li>
   <% end %>
@@ -22,12 +22,17 @@
 
 <ol>
   <% @user.inverse_friendships.each do |friendship| %>
-    <li>
-      <%= User.find(friendship.user_id).name %>
-      <%= button_to "Accept Invitation",
-                    friendships_update_path(friendship_id: friendship.id) %>
-      <%= button_to "Reject friendship",
+   
+<% if @user == current_user %>
+ <li>
+      <%= User.find(friendship.user_id).name %><br>
+      <%= button_to "Accept",
+                    friendships_update_path(friendship_id: friendship.id), class: "btn btn-secondary" %>
+      <%= button_to "Reject",
                     friendships_destroy_path(friendship_id: friendship.id) %>
     </li>
+ <% end %>
   <% end %>
 </ol>
+</section>
+

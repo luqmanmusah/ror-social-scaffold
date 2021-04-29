@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "friendships/destroy"
   post "friendships/create"
   post "friendships/update"
+  post "friendships/destroy"
 
   resources :posts, only: [:index, :create] do
     resources :comments, only: [:create]
