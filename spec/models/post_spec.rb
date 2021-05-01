@@ -18,11 +18,11 @@ RSpec.describe Post, type: :model do
   end
 
   describe 'ActiveRecord associations' do
-  it 'has many comments' do
-    expect { should has_many(comments) }
+    it 'has many comments' do
+      expect { should has_many(comments) }
+    end
+    it 'has many likes' do
+      expect { should has_many(likes) }
+    end
   end
-  it 'has many likes' do
-    expect { should has_many(likes) }
-  end
-end
 end

@@ -10,8 +10,8 @@ module UserHelper
 
   def add_friend(user)
     user.each do |user|
-      if (signed_in? && !Friendship.reacted?(current_user.id, user.id) && current_user != user)
-        return button_to "Add Friend", friendships_create_path(ids: { id1: current_user.id, id2: user.id })
+      if signed_in? && !Friendship.reacted?(current_user.id, user.id) && current_user != user
+        return button_to 'Add Friend', friendships_create_path(ids: { id1: current_user.id, id2: user.id })
       end
     end
   end
