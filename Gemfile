@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
 ruby '2.7.2'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
@@ -65,17 +67,24 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
 end
 
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+
+gem 'capybara'
+
+gem 'selenium-webdriver'
+=======
 group :development, :test do
   # The RSpec testing framework
   gem 'rspec-rails'
 
   # Capybara, the library that allows us to interact with the browser using Ruby
-  gem 'capybara'
+ 
 
   # The following gems aids with the nuts and bolts
   # of interacting with the browser.
   gem 'webdrivers'
 end
+
