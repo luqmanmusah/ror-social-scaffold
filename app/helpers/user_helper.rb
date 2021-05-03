@@ -1,4 +1,5 @@
 module UserHelper
+
   def put_name(user)
     user.each do |user|
       unless Friendship.reacted?(current_user.id, user.id)
@@ -15,4 +16,5 @@ module UserHelper
       end
     end
   end
-end
+
+

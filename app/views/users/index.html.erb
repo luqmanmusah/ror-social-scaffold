@@ -1,17 +1,9 @@
 <section class="users-section">
   <ul class="users-list">
     <%= render @users %> 
-  </ul>
- <% @users.each do |user| %>
-<% unless Friendship.reacted?(current_user.id, user.id) %> 
-<%= user.name %> <br> 
-<% end %>
- <% if signed_in? && !Friendship.reacted?(current_user.id, user.id) && current_user != user %>
-       
-  <%= button_to "Add Friend",
-                friendships_create_path(ids: { id1: current_user.id, id2: user.id }) %>
-<% end %>
-<% end %>
+
 </section>
+  </ul>
+
 
 
