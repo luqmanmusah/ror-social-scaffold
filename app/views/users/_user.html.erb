@@ -2,6 +2,8 @@
   Name: <%= user.name %>
   <span class="profile-link">
     <%= link_to "See Profile", user_path(user), class: "profile-link" %>
+<%= add_friend(user) %>
+<!--
 <% if signed_in? && !Friendship.reacted?(current_user.id, user.id) && current_user != user %>
        
   <%= button_to "Add Friend",
@@ -10,3 +12,4 @@
 
   </span>
 </li>
+-->
