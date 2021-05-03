@@ -3,13 +3,3 @@
   <span class="profile-link">
     <%= link_to "See Profile", user_path(user), class: "profile-link" %>
 <%= add_friend(user) %>
-<!--
-<% if signed_in? && !Friendship.reacted?(current_user.id, user.id) && current_user != user %>
-       
-  <%= button_to "Add Friend",
-                friendships_create_path(ids: { id1: current_user.id, id2: user.id }) %>
-<% end %>
-
-  </span>
-</li>
--->

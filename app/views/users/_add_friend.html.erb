@@ -1,15 +1,9 @@
-<ol>
+
+
 <%= un_friend(@user) %>
 
-<h3> These people wants to be friend with <strong> <%= @user.name %> </strong> </h3>
-<ol>
-  <% @user.inverse_friendships.each do |friendship| %>
- <li>
-      <%= User.find(friendship.user_id).name %><br>
-      <%= button_to "Accept",
-                    friendships_update_path(friendship_id: friendship.id), class: "btn btn-secondary", onclick: "disable" %>
-      <%= button_to "Reject",
-                    friendships_destroy_path(friendship_id: friendship.id) %>
-    </li>
- <% end %>
+
 </ol>
+<h3> These people wants to be friend with <strong> <%= @user.name %> </strong> </h3>
+<%= accept(@user) %>
+
