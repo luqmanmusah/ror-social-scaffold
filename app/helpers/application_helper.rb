@@ -42,8 +42,9 @@ module ApplicationHelper
       content_tag(:ul) do
         user.inverse_friendships.each do |friendship|
           concat content_tag(:li, (button_to 'Accept',
-                                             friendships_update_path(friendship_id: friendship.id)) + (button_to 'Reject',
-                                                                                                                 friendships_destroy_path(friendship_id: friendship.id)) +
+                                             friendships_update_path(friendship_id: friendship.id), data: { disable_with: 'Friends' }) +
+                                  (button_to 'Reject',
+                                             friendships_destroy_path(friendship_id: friendship.id)) +
                                   "#{User.find(friendship.user_id).name} Wants to be your friend")
         end
       end
