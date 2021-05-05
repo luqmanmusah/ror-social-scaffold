@@ -40,7 +40,7 @@ module ApplicationHelper
   def accept(user)
     if user == current_user
       content_tag(:ul) do
-        user.inverse_friendships.each do |friendship|
+        user.friend_requests.each do |friendship|
           concat content_tag(:li, (button_to 'Accept',
                                              friendships_update_path(friendship_id: friendship.id), data: { disable_with: 'Friends' }) +
                                   (button_to 'Reject',
