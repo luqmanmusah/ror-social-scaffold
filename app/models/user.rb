@@ -12,19 +12,14 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
+  has_many :confirmed_friendships, -> { where confirmed: true }, class_name: 'Friendship'
+  has_many :friends, through: :confirmed_friendship
+
   def friends
     friends_i_sent_invitation = Friendship.where(user_id: id, confirmed: true).pluck(:friend_id)
     friends_i_got_invitation = Friendship.where(friend_id: id, confirmed: true).pluck(:user_id)
     ids = friends_i_sent_invitation + friends_i_got_invitation
     User.where(id: ids)
-  end
-
-  def friend_with?(user)
-    Friendship.confirmed_record?(id, user.id)
-  end
-
-  def send_invitation(user)
-    friendships.create(friend_id: user.id)
   end
 
   # Users who have yet to confirme friend requests
@@ -34,7 +29,7 @@ class User < ApplicationRecord
 
   # Users who have requested to be friends
   def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
+    inverse_friendships.map { |friendship| friendship unless friendship.confirmed }.compact
   end
 
   def confirm_friend(user)
