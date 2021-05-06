@@ -7,6 +7,20 @@
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
 
+
+## Screenshot
+
+![social_media_1](https://user-images.githubusercontent.com/22328716/117332761-becf3280-ae87-11eb-86ee-4d23e3a799dd.png)
+
+![social_media_2](https://user-images.githubusercontent.com/22328716/117332842-d60e2000-ae87-11eb-8dd7-fc8152d95211.png)
+
+![social_media_3](https://user-images.githubusercontent.com/22328716/117332922-ed4d0d80-ae87-11eb-81c6-cb4a931df1d4.png)
+
+![social_media_4](https://user-images.githubusercontent.com/22328716/117332975-fb9b2980-ae87-11eb-95ec-7bf992875f3d.png)
+
+![social_media_5](https://user-images.githubusercontent.com/22328716/117333046-0d7ccc80-ae88-11eb-9ef1-042890bd67bd.png)
+
+
 ## Live Demo
 
 TBA
@@ -65,29 +79,19 @@ Open `http://localhost:3000/` in your browser.
 
 > Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
-### Deployment
 
-TBA
+## ✒️ Author <a name = "author"></a>
 
-## Authors
+👤 **Addis Belete**
 
-TBA
+- Github: [@Addis0943](https://github.com/Addis0943)
+- Linkedin: [Addid Belete](https://www.linkedin.com/in/addis-belete-134b98191/)
 
-## 🤝 Contributing
+👤 **Luqman Musah**
 
-Contributions, issues and feature requests are welcome!
-
-Feel free to check the [issues page](issues/).
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-TBA
+- Github: [@luqmanmusah](https://github.com/luqmanmusah)
+- Linkedin: [Luqman Musah](https://www.linkedin.com/in/luqman-musah/)
 
 ## 📝 License
 
-TBA
-
+This Project has no Licence.
